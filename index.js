@@ -1,7 +1,8 @@
 const express = require('express')
+const { port } = require('./src/config')
 
 const app = express()
 
-app.listen(3000, ()=>{
-    console.log(`Servidor escuchando en el puerto http://localhost:3000`);
+app.listen(port, ()=>{
+    console.log(`Servidor escuchando en el puerto http://localhost:${port}`);
 })
