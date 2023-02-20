@@ -13,29 +13,11 @@ app.get('/photos',async(req,res)=>{
 
         res.json(data)
     } catch (error) {
-        res.status(500).json({message: 'Internal server Error'})
+        console.log(error);
     }
 })
 
-app.get('/albums',async(req,res)=>{
-    try {
-        let responsealbums = await axios.get('https://jsonplaceholder.typicode.com/albums')
-        let { data } = responsealbums
-        res.json(data)
-    } catch (error) {
-        res.status(500).json({message: 'Internal server Error'})
-    }
-})
 
-app.get('/users', async(req,res)=>{
-    try {
-        let responseusers = await axios.get('https://jsonplaceholder.typicode.com/users')
-        let { data } = responseusers
-        res.json(data)
-    } catch (error) {
-        res.status(500).json({message: 'Internal server Error'})
-    }
-})
 
 
 app.listen(port, ()=>{
