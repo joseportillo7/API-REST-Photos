@@ -2,6 +2,14 @@ const {DataPhotos,DataAlbums,DataUsers} = require('./request')
 
 let arr_data = []
 
+const Photos = async()=>{
+    return arr_data
+}
+
+const PhotoById = async(id)=>{
+    return arr_data.find(photo => photo.id.toString() === id)
+}
+
 const main_array = async() =>{
     try {
         let dataphotos = await DataPhotos()
@@ -18,7 +26,7 @@ const main_array = async() =>{
                                 "title": photo.title,
                                 "url": photo.url,
                                 "thumbnailUrl": photo.thumbnailUrl,
-                                "algum": {
+                                "album": {
                                     "id": album.id,
                                     "title": album.title,
                                     "user": {
@@ -39,4 +47,6 @@ const main_array = async() =>{
 
 module.exports.PhotoService = {
     main_array,
+    Photos,
+    PhotoById,
 }
