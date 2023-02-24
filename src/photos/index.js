@@ -1,15 +1,16 @@
 const express = require('express')
-const axios = require('axios')
-const { getPhotos, getPhotoById } = require('./controller')
+const { Controller } = require('./controller')
 
 
 const router = express.Router()
 
 module.exports.PhotoAPI = (app) =>{
     router
-        .get('/photos', getPhotos)
-        .get('/photos/:id', getPhotoById)
+        .get('', Controller.getPhotos)
+        .get('/:id', Controller.getPhotoById)
+        .get('/albums/:title', Controller.getAlbums)
+        .get('/users/:na', Controller.getUsers)
 
-    app.use('/api',router)
+    app.use('/api/photos',router)
 }
 

@@ -10,6 +10,14 @@ const PhotoById = async(id)=>{
     return arr_data.find(photo => photo.id.toString() === id)
 }
 
+const Albums = async(title) =>{
+    return arr_data.filter(photo=> photo.album.title.includes(title))
+}
+
+const Users = async(name)=>{
+    return arr_data.filter(photo => photo.album.user.name.includes(name))
+}
+
 const main_array = async() =>{
     try {
         let dataphotos = await DataPhotos()
@@ -49,4 +57,6 @@ module.exports.PhotoService = {
     main_array,
     Photos,
     PhotoById,
+    Albums,
+    Users,
 }
