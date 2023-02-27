@@ -1,13 +1,6 @@
-const express = require('express')
 const { port } = require('./src/config')
-const { PhotoAPI } = require('./src/photos')
 const { PhotoService } = require('./src/photos/service')
-
-const app = express()
-app.use(express.json())
-
-
-PhotoAPI(app)
+const app = require('./src/photos')
 
 /* Function to add data in an array from public API's */
 PhotoService.main_array()
