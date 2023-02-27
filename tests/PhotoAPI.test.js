@@ -1,5 +1,5 @@
 const request = require('supertest')
-const app = require('..')
+const app = require('../src/photos')
 
 
 describe('GET request from /api/photos',()=>{
@@ -8,14 +8,14 @@ describe('GET request from /api/photos',()=>{
         expect(response.statusCode).toBe(200)
     })
     test('should be response statusCode 200 - /api/photos/1', async()=>{
-        let response = await (await request(app).get('/api/photos/1')).sed()
+        let response = await request(app).get('/api/photos/1').send()
         expect(response.statusCode).toBe(200)
     })
 })
 
 describe('GET request from /api/albums',()=>{
     test('should be response statusCode 200 - /api/albums/title', async()=>{
-        let response = await (await request(app).get('/api/albums/enim')).send()
+        let response = await request(app).get('/api/albums/enim').send()
         expect(response.statusCode).toBe(200)
     })
 })
