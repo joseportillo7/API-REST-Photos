@@ -1,16 +1,13 @@
 const express = require('express')
 const { Controller } = require('./controller')
 
+const app = express()
+app.use(express.json())
 
-const router = express.Router()
 
-module.exports.PhotoAPI = (app) =>{
-    router
-        .get('', Controller.getPhotos)
-        .get('/:id', Controller.getPhotoById)
-        .get('/albums/:title', Controller.getAlbums)
-        .get('/users/:na', Controller.getUsers)
+app.get('/api/photos', Controller.getPhotos)
+app.get('/api/photos/:id', Controller.getPhotoById)
+app.get('/api/albums/:title', Controller.getAlbums)
+app.get('/api/users/:na', Controller.getUsers)
 
-    app.use('/api/photos',router)
-}
-
+module.exports = app
